@@ -7,7 +7,7 @@ class TranslationTest < Test::Unit::TestCase
   fixtures :globalize_languages, :globalize_translations, :globalize_countries,
     :globalize_products, :globalize_manufacturers, :globalize_categories,
     :globalize_categories_products, :globalize_simples
-
+    
   class Product < ActiveRecord::Base
     set_table_name "globalize_products"
 

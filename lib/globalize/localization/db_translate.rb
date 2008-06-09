@@ -672,21 +672,20 @@ module Globalize # :nodoc:
         # an SQL statement.
         # REDEFINED to include only untranslated fields. We don't want to overwrite the
         # base translation with other translations.
-        def attributes_with_quotes(include_primary_key = true, include_readonly_attributes = true)
+        def attributes_with_quotes(include_primary_key = true, include_readonly_attributes = true, attribute_names = @attributes.keys)
+          quoted = {}
+          connection = self.class.connection
           if Locale.base?
-            quoted = attributes.inject({}) do |quoted, (name, value)|
+            attribute_names.each do |name|
               if column = column_for_attribute(name)
-                quoted[name] = quote_value(value, column) unless !include_primary_key && column.primary
+                quoted[name] = connection.quote(read_attribute(name), column) unless !include_primary_key && column.primary
               end
-              quoted
             end
           else
-            quoted = attributes.inject({}) do |quoted, (name, value)|
-              if !self.class.globalize_facets_hash.has_key?(name) &&
-                  column = column_for_attribute(name)
-                quoted[name] = quote_value(value, column) unless !include_primary_key && column.primary
+            attribute_names.each do |name|
+              if !self.class.globalize_facets_hash.has_key?(name) && column = column_for_attribute(name)
+                quoted[name] = connection.quote(read_attribute(name), column) unless !include_primary_key && column.primary
               end
-              quoted
             end
           end
 	        include_readonly_attributes ? quoted : remove_readonly_attributes(quoted)

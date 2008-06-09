@@ -22,6 +22,6 @@ class RenderControllerTest < Test::Unit::TestCase
     get :test
     assert @response.rendered_with_file?
     assert 'test', @response.rendered_file
-    assert_template 'test'
+    assert_template 'test.rhtml'
   end
 end

@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/test_helper'
 
 class ViewPickingTest < Test::Unit::TestCase
   include Globalize
-  fixtures :globalize_languages, :globalize_countries
+  fixtures :globalize_languages, :globalize_countries  
 
   class TestController < ActionView::Base
   end

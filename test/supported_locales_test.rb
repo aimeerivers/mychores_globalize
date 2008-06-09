@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/test_helper'
 class SupportedLocalesTest < Test::Unit::TestCase
   include Globalize
 
-  fixtures :globalize_languages, :globalize_countries
+  fixtures :globalize_languages, :globalize_countries   
 
   def setup
     @supported_locales = ['es-ES', 'he-IL']
