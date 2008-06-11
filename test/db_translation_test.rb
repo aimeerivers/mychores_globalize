@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/test_helper'
 
 class TranslationTest < Test::Unit::TestCase
   Globalize::DbTranslate.keep_translations_in_model = false
+  ActiveRecord::Base.store_full_sti_class = false
 
   self.use_instantiated_fixtures = true
   fixtures :globalize_languages, :globalize_translations, :globalize_countries,
