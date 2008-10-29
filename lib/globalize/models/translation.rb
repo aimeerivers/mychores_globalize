@@ -5,5 +5,6 @@ module Globalize # :nodoc:
     def self.reloadable?; false end
 
     belongs_to :language
+    belongs_to :person
   end
 end
