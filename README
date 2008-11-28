@@ -1,5 +1,11 @@
 =Welcome to Globalize
 
+*Please note* this is a modified version of heythisisnate/globalize. You probably don't want to use this one. I just changed a couple of things so that it works for MyChores. Ideally i would monkey-patch it, but since the heythisisnate version disappeared off GitHub, i thought the easiest thing would be to just put up the version that i use and trust.
+
+- Aimee.
+
+Original README follows.
+
 *Globalize* is a Ruby on Rails plugin designed to support globalized applications.
 It supports translation into multiple languages (for both db content and controller
 and view code) and localization of time, data, and numbers.
